@@ -1,0 +1,6 @@
+ffmpeg/*.png
+ffmpeg/*.mp4
+ffmpeg/out
+ffmpeg/__pycache__
+label_image/model
+randomaccess/*.dat
