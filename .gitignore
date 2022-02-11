@@ -1,6 +1,11 @@
-ffmpeg/*.png
-ffmpeg/*.mp4
+
 ffmpeg/out
 ffmpeg/__pycache__
 label_image/model
-randomaccess/*.dat
+*.png
+*.jpg
+*.mp4
+*.pb
+*.dat
+*.txt
+*.tar.gz
