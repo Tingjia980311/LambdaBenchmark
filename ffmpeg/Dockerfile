@@ -1,12 +1,5 @@
 FROM public.ecr.aws/lambda/python:3.6
 
-# Install OS packages for Pillow-SIMD
-RUN yum -y install tar gzip zlib freetype-devel \
-    gcc \
-    make \
-    sudo \
-    wget \
-    && yum clean all
 RUN wget https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-amd64-static.tar.xz
 RUN tar -xvf ffmpeg-release-amd64-static.tar.xz
 RUN rm ffmpeg-release-amd64-static.tar.xz

@@ -1,0 +1,12 @@
+{
+    "dev": {
+        "aws_region": "us-east-1",
+        "django_settings": "core.settings",
+        "profile_name": "default",
+        "project_name": "core",
+        "runtime": "python3.6",
+        "s3_bucket": "zappa-7m8da25xy",
+	    "log_level": "ERROR",
+        "memory_size": 256
+    }
+}

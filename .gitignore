@@ -2,6 +2,7 @@
 ffmpeg/out
 ffmpeg/__pycache__
 label_image/model
+django_serverless/venv
 *.png
 *.jpg
 *.mp4
@@ -9,3 +10,5 @@ label_image/model
 *.dat
 *.txt
 *.tar.gz
+__pycache__
+migrations
