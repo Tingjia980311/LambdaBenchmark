@@ -90,4 +90,4 @@ def lambda_handler(event, context):
     labels = load_labels(label_file)
     return [labels[i] for i in top_k]
     
-print(lambda_handler({},{}))
+# print(lambda_handler({},{}))
