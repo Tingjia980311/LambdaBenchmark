@@ -71,7 +71,7 @@ input_name = "import/" + input_layer
 output_name = "import/" + output_layer
 input_operation = graph.get_operation_by_name(input_name)
 output_operation = graph.get_operation_by_name(output_name)
-
+sess = tf.compat.v1.Session(graph=graph)
 def lambda_handler(event, context):
     t = read_tensor_from_image_file(
         file_name,
@@ -80,10 +80,11 @@ def lambda_handler(event, context):
         input_mean=input_mean,
         input_std=input_std)
 
-    with tf.compat.v1.Session(graph=graph) as sess:
-        results = sess.run(output_operation.outputs[0], {
-            input_operation.outputs[0]: t
-        })
+
+    results = sess.run(output_operation.outputs[0], {
+        input_operation.outputs[0]: t
+    })
+
     results = np.squeeze(results)
 
     top_k = results.argsort()[-5:][::-1]

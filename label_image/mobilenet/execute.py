@@ -11,7 +11,7 @@ max_memorys = {}
 for m in memory:
     execute_times[m] = []
     max_memorys[m] = []
-for i in range(10):
+for i in range(5):
     for m in memory:
         print ("memory size set to: ", m)
         while 1:
@@ -53,7 +53,7 @@ for i in range(10):
                 time.sleep(1)
                 continue
             if i == 0:
-                time.sleep(0.2)
+                time.sleep(1)
                 i += 1
                 continue
             i += 1
@@ -61,7 +61,7 @@ for i in range(10):
             
             max_memorys[m].append(int(logresults['Max Memory Used'][0:-3]))
             execute_times[m].append(float(logresults['Duration'][0:-3]))
-            time.sleep(0.2)
+            time.sleep(1)
             
 print(execute_times)
 print(max_memorys)
