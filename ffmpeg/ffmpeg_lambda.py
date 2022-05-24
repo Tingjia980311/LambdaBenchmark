@@ -6,8 +6,8 @@ def lambda_handler(event, context):
     call (
         ["/var/task/ffmpeg-5.0.1-amd64-static/ffmpeg",
         "-i", "./cut.mp4",
-        "-vf", "fps=1/2",
-        "out%d.png"]
+        "-vf", "fps=1/60",
+        "/tmp/out%d.png"]
     )
 
     return 1
