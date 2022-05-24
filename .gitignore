@@ -1,6 +1,7 @@
 
 ffmpeg/out
 ffmpeg/__pycache__
+ffmpeg/data
 label_image/model
 django_serverless/venv
 *.png
