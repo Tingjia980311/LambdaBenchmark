@@ -5,7 +5,7 @@ import time
 import statistics
 
 lambda_client = boto3.client('lambda',  region_name='us-east-1')
-memory = [ 1024, 2048, 3072, 4096, 5120, 6144, 7168, 8192 ]
+memory = [ 1024, 1280, 1536, 1792, 2048, 3072, 4096, 5120, 6144, 7168, 8192 ]
 memory.reverse()
 
 execute_times = {}
@@ -13,13 +13,13 @@ max_memorys = {}
 for m in memory:
     execute_times[m] = []
     max_memorys[m] = []
-for i in range(4):
+for i in range(5):
     for m in memory:
         print ("memory size set to: ", m)
         while 1:
             try:
                 response = lambda_client.update_function_configuration(
-                    FunctionName='AnalysisSVC',
+                    FunctionName='AnalysisRandomAccess',
                     MemorySize=m,
                 )
                 break
@@ -27,19 +27,19 @@ for i in range(4):
                 time.sleep(1)
         time.sleep(1)
         response = lambda_client.get_function_configuration(
-            FunctionName='AnalysisSVC'
+            FunctionName='AnalysisRandomAccess'
         )
         while response["MemorySize"]!=m:
             time.sleep(1)
             response = lambda_client.get_function_configuration(
-                FunctionName='AnalysisSVC'
+                FunctionName='AnalysisRandomAccess'
             )
         print("memory size setted to: ", response["MemorySize"])
         time.sleep(3)
         i = 0
         while i < 11:
             response = lambda_client.invoke(
-                FunctionName='AnalysisSVC',
+                FunctionName='AnalysisRandomAccess',
                 LogType='Tail',
                 Payload='',
             )
