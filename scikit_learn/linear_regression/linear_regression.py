@@ -9,8 +9,8 @@ import time
 rs = check_random_state(777)
 X, y = make_regression(n_targets=1,
                         n_samples=1000000,
-                        n_features=100,
-                        n_informative=100,
+                        n_features=200,
+                        n_informative=200,
                         bias=rs.normal(0, 3),
                         random_state=rs)
 

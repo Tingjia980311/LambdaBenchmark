@@ -19,7 +19,7 @@ for i in range(10):
         while 1:
             try:
                 response = lambda_client.update_function_configuration(
-                    FunctionName='AnalysisLogisticReg',
+                    FunctionName='AnalysisLinearReg',
                     MemorySize=m,
                 )
                 break
@@ -27,19 +27,19 @@ for i in range(10):
                 time.sleep(1)
         time.sleep(1)
         response = lambda_client.get_function_configuration(
-            FunctionName='AnalysisLogisticReg'
+            FunctionName='AnalysisLinearReg'
         )
         while response["MemorySize"]!=m:
             time.sleep(1)
             response = lambda_client.get_function_configuration(
-                FunctionName='AnalysisLogisticReg'
+                FunctionName='AnalysisLinearReg'
             )
         print("memory size setted to: ", response["MemorySize"])
         time.sleep(3)
         i = 0
         while i < 11:
             response = lambda_client.invoke(
-                FunctionName='AnalysisLogisticReg',
+                FunctionName='AnalysisLinearReg',
                 LogType='Tail',
                 Payload='',
             )

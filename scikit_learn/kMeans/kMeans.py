@@ -6,7 +6,7 @@ from sklearn.datasets import make_blobs
 from sklearn.metrics.cluster import davies_bouldin_score
 import time
 
-X, y = make_blobs(n_samples=50000,
+X, y = make_blobs(n_samples=500000,
                     n_features=20,
                     centers=100,
                     center_box=(-32, 32),
@@ -22,4 +22,4 @@ def lambda_handler(event, context):
     
     
     
-print(lambda_handler({"n-clusters": 100},{}))
+# print(lambda_handler({"n-clusters": 100},{}))

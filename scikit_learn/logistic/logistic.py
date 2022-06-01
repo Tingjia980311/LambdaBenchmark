@@ -4,9 +4,9 @@ from sklearn.datasets import make_classification
 import time
 
 
-X, y = make_classification(n_samples=250000,
-                               n_features=50,
-                               n_informative=50,
+X, y = make_classification(n_samples=2000000,
+                               n_features=100,
+                               n_informative=100,
                                n_repeated=0,
                                n_redundant=0,
                                n_classes=2,
