@@ -3,8 +3,15 @@ import base64
 import json
 import time
 import statistics
+import botocore
 
-lambda_client = boto3.client('lambda',  region_name='us-east-1')
+config = botocore.config.Config(
+    read_timeout=900,
+    connect_timeout=900,
+    retries={"max_attempts": 0}
+)
+
+lambda_client = boto3.client('lambda',  region_name='us-east-1', config=config)
 memory = [ 1024, 2048, 3072, 4096, 5120, 6144, 7168, 8192, 10240]
 memory.reverse()
 
